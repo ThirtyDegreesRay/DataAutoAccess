@@ -34,6 +34,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        //系统由于内存不足而杀死activity，此时保存数据
         DataAutoAccessTool.saveData(this, outState);
     }
 }
