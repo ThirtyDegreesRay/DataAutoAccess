@@ -127,13 +127,14 @@ public class DataAutoAccessTool {
 					DataAutoAccess dataAutoAccess = field.getAnnotation(DataAutoAccess.class);
 					if(dataAutoAccess != null){
 						String key ;
+						//因为混淆之后变量名会改变，所以需要设置dataName作为键值
 						if(isFromIntent){
 							key = dataAutoAccess.dataName();
 						}else{
+							//onSaveInstanceState时存储的键值就是变量名，取出也用变量名
 							key = field.getName();
 						}
 
-						Log.e(TAG, key);
 						if(key.equals(""))
 							continue;
 						
