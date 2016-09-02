@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 /**
- * 数据自动存储工具
+ * data auto access tool
  * @author ThirtyDegreesRay
  *
  */
@@ -18,9 +18,9 @@ public class DataAutoAccessTool {
 	private final static String TAG = "DataAutoAccessTool";
 	
 	/**
-	 * 保存数据
-	 * @param injectedSource 需要保存数据的对象
-	 * @param outState 存储数据的bundle
+	 * save data
+	 * @param injectedSource the object need to save data
+	 * @param outState the bundle to save data
 	 */
 	@SuppressWarnings("unchecked")
 	public static void saveData(Object injectedSource, Bundle outState){
@@ -97,21 +97,21 @@ public class DataAutoAccessTool {
 						}else if(type.equals(Parcelable[].class)){
 							outState.putParcelableArray(key, (Parcelable[]) value);
 						}
-//						Log.i("Save", "保存成功：filed " + field.getName() );
+//						Log.i("Save", "save success：filed " + field.getName() );
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
-					Log.w("Save", "保存异常：filed " + field.getName() + "  " + e.getMessage().toString());
+					Log.w("Save", "save exception：filed " + field.getName() + "  " + e.getMessage().toString());
 				} 
 			}
 		}
 	}
 	
 	/**
-	 * 从Bundle里面获取数据，进行初始化
-	 * @param injectedSource 需要初始化的对象
-	 * @param data 数据
-	 * @param isFromIntent 是否是获取Intent中的数据，获取onSaveInstanceState中的数据则是false
+	 * get data from bundle, and init filed value
+	 * @param injectedSource the object need init
+	 * @param data bundle data
+	 * @param isFromIntent if the data from intent, set true, otherwise set false
 	 */
 	public static void getData(Object injectedSource, Bundle data, boolean isFromIntent){
 		if(injectedSource == null || data == null)
@@ -127,11 +127,11 @@ public class DataAutoAccessTool {
 					DataAutoAccess dataAutoAccess = field.getAnnotation(DataAutoAccess.class);
 					if(dataAutoAccess != null){
 						String key ;
-						//因为混淆之后变量名会改变，所以需要设置dataName作为键值
+						//because the field name will changed when proguard, so we need to set ‘dataName' as key
 						if(isFromIntent){
 							key = dataAutoAccess.dataName();
 						}else{
-							//onSaveInstanceState时存储的键值就是变量名，取出也用变量名
+							//when onSaveInstanceState, we save field name as key, so get use filed name too
 							key = field.getName();
 						}
 
@@ -141,7 +141,7 @@ public class DataAutoAccessTool {
 						if(data.containsKey(key)){
 							Object value = data.get(key);
 							field.set(injectedSource, value);
-//							Log.i("Save", "获取成功：filed " + field.getName() );
+//							Log.i("Save", "get success：filed " + field.getName() );
 						}else{
 							error = key + "don't exits";
 						}

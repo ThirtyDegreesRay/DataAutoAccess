@@ -1,9 +1,15 @@
 ##DataAutoAccess - Android bundle data auto access.
-#####Uses:
+###Uses:
 1. activity启动时取出intent中的数据；
 2. activity由于系统内存不足时被杀死，在onSaveInstanceState方法里存储数据，onCreate时取出数据。
 
-#####How to use:
+###How to use:
+添加依赖
+
+    dependencies {
+        compile 'com.thirtydegreesray.dataautoaccess:Library:1.0.5'
+    }
+
 BaseActivity中添加取出数据和存储数据代码：
 
     @Override
@@ -47,4 +53,8 @@ BaseActivity中添加取出数据和存储数据代码：
     private String description;
     
 经过以上配置之后，DataAutoAccessTool会自动从intent中取出数据，给name和description变量赋值，而且当activity由于系统内存不足被杀死时，也会自动保存变量值，在onCreate时取出进行自动赋值。
+
+####Welcome advice
+
+
 
