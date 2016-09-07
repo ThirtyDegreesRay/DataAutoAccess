@@ -16,7 +16,7 @@ public class MainActivity extends BaseActivity {
     }
 
     public void onDataAutoAccessClick(View view){
-        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, ExampleActivity.class);
         intent.putExtra("name", "DataAutoAccess");
         intent.putExtra("description", "Android bundle data auto access.");
         startActivity(intent);
