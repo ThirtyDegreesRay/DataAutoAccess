@@ -1,1 +1,1 @@
-include ':dataautoaccess-compiler', ':dataautoaccess', ':dataautoaccess-annotations', ':Sample'
+include ':dataautoaccess-compiler', ':dataautoaccess', ':dataautoaccess-annotations'
