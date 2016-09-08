@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 24
@@ -30,6 +29,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.0'
     testCompile 'junit:junit:4.12'
-    compile project(':dataautoaccess')
-    apt project(':dataautoaccess-compiler')
+
+    compile project (':Library')
 }

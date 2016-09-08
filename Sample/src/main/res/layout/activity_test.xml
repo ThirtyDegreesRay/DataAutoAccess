@@ -3,37 +3,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_bg"
-    android:padding="8dp"
-    android:gravity="center">
+    android:padding="8dp">
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"/>
+        android:textColor="@android:color/black"/>
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:gravity="center"/>
-
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="SaveData"
-        android:onClick="onSaveDataClick"
-        android:layout_marginTop="20dp"/>
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="ChangeData"
-        android:onClick="onChangeDataClick"/>
-    <Button
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="GetData"
-        android:onClick="onGetDataClick"/>
+        android:textColor="@android:color/black"/>
 </LinearLayout>
