@@ -46,9 +46,35 @@ BaseActivity中添加取出数据和存储数据代码：
 
 
 ##Download
+Configure your project-level build.gradle to include the 'android-apt' plugin:
 
+    buildscript {
+        repositories {
+            mavenCentral()
+        }
+        dependencies {
+            classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        }
+    }
+    allprojects {
+        repositories {
+            maven {
+                url "https://dl.bintray.com/thirtydegreesray/maven/"
+            }
+        }
+    }
+    
+Then, apply the 'android-apt' plugin in your module-level build.gradle and add the Data Auto Access dependencies:
+
+    apply plugin: 'android-apt'
+    
+    android {
+        ...
+    }
+    
     dependencies {
-        compile 'com.thirtydegreesray.dataautoaccess:Library:1.1.0'
+        compile 'com.thirtydegreesray:dataautoaccess:1.2.0'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.0'
     }
 
 ##License

@@ -47,6 +47,8 @@ import java.util.LinkedHashMap;
  */
 public class DataAutoAccess {
 
+    private static final String SUFFIX = "$$DataAccessor";
+
     private static LinkedHashMap<String, DataAccessor<Object>> dataAccessorMap = new LinkedHashMap<String, DataAccessor<Object>>();
 
     /**
@@ -83,7 +85,7 @@ public class DataAutoAccess {
 
     private static DataAccessor<Object> getDataAccessor(Object targetObject, Bundle dataStore){
         Class<?> targetClass = targetObject.getClass();
-        String className = targetClass.getName() + DataAutoAccessProcessor.SUFFIX;
+        String className = targetClass.getName() + SUFFIX;
         return getDataAccessor(className);
     }
 

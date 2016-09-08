@@ -1,4 +1,4 @@
-package com.thirtydegreesray.dataautoaccess;
+package com.thirtydegreesray.dataautoaccess.compiler;
 
 /**
  * Created by ThirtyDegreesRay on 2016/9/6 17:07

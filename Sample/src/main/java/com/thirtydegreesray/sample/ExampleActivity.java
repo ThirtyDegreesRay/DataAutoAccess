@@ -5,8 +5,8 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
-import com.thirtydegreesray.dataautoaccess.AutoAccess;
 import com.thirtydegreesray.dataautoaccess.DataAutoAccess;
+import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 
 /**
  * Created by ThirtyDegreesRay on 2016/9/1 10:09

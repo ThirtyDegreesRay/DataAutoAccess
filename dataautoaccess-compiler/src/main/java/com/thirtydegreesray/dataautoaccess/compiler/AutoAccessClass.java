@@ -1,4 +1,4 @@
-package com.thirtydegreesray.dataautoaccess;
+package com.thirtydegreesray.dataautoaccess.compiler;
 
 import java.util.ArrayList;
 

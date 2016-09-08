@@ -1,4 +1,4 @@
-package com.thirtydegreesray.dataautoaccess;
+package com.thirtydegreesray.dataautoaccess.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,7 @@
-package com.thirtydegreesray.dataautoaccess;
+package com.thirtydegreesray.dataautoaccess.compiler;
+
+import com.google.auto.service.AutoService;
+import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -12,6 +15,7 @@ import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
@@ -35,6 +39,7 @@ import static javax.lang.model.element.Modifier.STATIC;
  * Created by ThirtyDegreesRay on 2016/9/5 10:43
  */
 @SupportedSourceVersion(SourceVersion.RELEASE_6)
+@AutoService(Processor.class)
 public class DataAutoAccessProcessor extends AbstractProcessor {
 
     public static final String SUFFIX = "$$DataAccessor";

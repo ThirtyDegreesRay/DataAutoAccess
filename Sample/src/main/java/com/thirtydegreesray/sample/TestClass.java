@@ -3,7 +3,7 @@ package com.thirtydegreesray.sample;
 import android.os.Bundle;
 import android.os.Parcelable;
 
-import com.thirtydegreesray.dataautoaccess.AutoAccess;
+import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 
 import java.io.Serializable;
 import java.util.ArrayList;
