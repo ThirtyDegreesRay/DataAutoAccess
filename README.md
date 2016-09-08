@@ -56,6 +56,7 @@ Configure your project-level build.gradle to include the 'android-apt' plugin:
             classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         }
     }
+    
     allprojects {
         repositories {
             maven {
