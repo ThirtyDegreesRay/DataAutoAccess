@@ -117,6 +117,9 @@ public class DataAutoAccess {
     }
 
     public static void saveArrayList(String key, ArrayList list, Bundle dataStore){
+        if(list == null){
+            return ;
+        }
         Object[] listArray = list.toArray();
         if(listArray instanceof String[]){
             dataStore.putStringArrayList(key, list);
