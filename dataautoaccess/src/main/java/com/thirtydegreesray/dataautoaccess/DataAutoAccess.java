@@ -112,10 +112,12 @@ public class DataAutoAccess {
         void saveData(T target, Bundle dataStore);
     }
 
+    /** Exposed for generated code. */
     public static <T extends Object> T getCastData(String key, Bundle dataStore){
         return (T) dataStore.get(key);
     }
 
+    /** Exposed for generated code. */
     public static void saveArrayList(String key, ArrayList list, Bundle dataStore){
         if(list == null){
             return ;

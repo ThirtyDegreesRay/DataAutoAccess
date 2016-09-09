@@ -57,14 +57,6 @@ Configure your project-level build.gradle to include the 'android-apt' plugin:
         }
     }
     
-    allprojects {
-        repositories {
-            maven {
-                url "https://dl.bintray.com/thirtydegreesray/maven/"
-            }
-        }
-    }
-    
 Then, apply the 'android-apt' plugin in your module-level build.gradle and add the Data Auto Access dependencies:
 
     apply plugin: 'android-apt'
@@ -74,8 +66,8 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
     }
     
     dependencies {
-        compile 'com.thirtydegreesray:dataautoaccess:1.2.0'
-        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.0'
+        compile 'com.thirtydegreesray:dataautoaccess:1.2.1'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.1'
     }
 
 ##License
