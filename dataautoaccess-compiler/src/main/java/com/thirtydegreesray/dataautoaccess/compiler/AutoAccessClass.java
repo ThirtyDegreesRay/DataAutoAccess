@@ -69,7 +69,7 @@ public class AutoAccessClass {
         for(FieldAutoAccess field : fields){
             java.append("\t").append("target.").append(field.getFieldName())
                     .append(" = ")
-                    .append("DataAutoAccess.getCastData(").append("\"").append(field.getDataName()).append("\"")
+                    .append("DataAutoAccess.getCastData(").append("\"").append(field.getFiledKey()).append("\"")
                     .append(", ").append("dataStore").append(");\n");
         }
         java.append("}\n");
@@ -82,12 +82,12 @@ public class AutoAccessClass {
             //type ArrayList
             if(putPreCode.equals("")){
                 java.append("\t").append("DataAutoAccess.saveArrayList(")
-                        .append("\"").append(field.getDataName()).append("\"").append(", ")
+                        .append("\"").append(field.getFiledKey()).append("\"").append(", ")
                         .append("target.").append(field.getFieldName()).append(", ")
                         .append("dataStore").append(");\n");
             }else{
                 java.append("\t").append("dataStore.").append(putPreCode)
-                        .append("(").append("\"").append(field.getDataName()).append("\"").append(", ")
+                        .append("(").append("\"").append(field.getFiledKey()).append("\"").append(", ")
                         .append("target.").append(field.getFieldName()).append(");\n");
             }
         }

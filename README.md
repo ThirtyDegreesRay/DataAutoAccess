@@ -6,10 +6,8 @@
 
 ```java
 public class ExampleActivity extends Activity{
-    @AutoAccess(dataName = "name")
-    String name;
-    @AutoAccess(dataName = "description")
-    String description;
+    @AutoAccess String name;
+    @AutoAccess String description;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,9 +63,13 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
     }
     
     dependencies {
-        compile 'com.thirtydegreesray:dataautoaccess:1.2.1'
-        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.1'
+        compile 'com.thirtydegreesray:dataautoaccess:1.2.2'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.2'
     }
+    
+##Proguard
+    -keep class com.thirtydegreesray.dataautoaccess.** { *; }
+    -keep class **$$DataAccessor { *; }
 
 ##License
     Copyright 2016 ThirtyDegreesRay

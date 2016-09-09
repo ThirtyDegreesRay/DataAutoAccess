@@ -14,10 +14,8 @@ import com.thirtydegreesray.dataautoaccess.annotation.AutoAccess;
 
 public class ExampleActivity extends BaseActivity {
 
-    @AutoAccess(dataName = "name")
-    String name;
-    @AutoAccess(dataName = "description")
-    String description;
+    @AutoAccess String name;
+    @AutoAccess String description;
 
     private TextView tvName;
     private TextView tvDescription;

@@ -1,9 +1,10 @@
 package com.thirtydegreesray.dataautoaccess.annotation;
 
-import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.RetentionPolicy.CLASS;
 
 /**
  * data auto access<br>
@@ -11,12 +12,13 @@ import java.lang.annotation.Target;
  *
  * Created by ThirtyDegreesRay on 2016/9/6 09:35
  */
-@Target(ElementType.FIELD)
-@Retention(RetentionPolicy.RUNTIME)
+@Target(FIELD)
+@Retention(CLASS)
 public @interface AutoAccess {
     /**
-     * the access key of the filed, must be unique in one class
+     * the access key of the filed, must be unique in one class<br>
+     * if don't set this value, use field name as default key
      * @return dataName
      */
-    String dataName() ;
+    String dataName() default "";
 }

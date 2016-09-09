@@ -15,3 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#DataAutoAccess
+-keep class com.thirtydegreesray.dataautoaccess.** { *; }
+-keep class **$$DataAccessor { *; }
+#DataAutoAccess

@@ -13,7 +13,10 @@ import java.util.LinkedHashMap;
  * Android bundle data auto access.<br>
  *USE<br>
  * <pre><code>
- *       public class BaseActivity extends Activity {
+ *       public class ExampleActivity extends Activity {
+ *          {@literal @}AutoAccess String name;
+ *          {@literal @}AutoAccess String description;
+ *
  *          {@literal @}Override
  *           protected void onCreate(@Nullable Bundle savedInstanceState) {
  *               super.onCreate(savedInstanceState);
@@ -25,6 +28,7 @@ import java.util.LinkedHashMap;
  *                   data = savedInstanceState;
  *               }
  *               DataAutoAccess.getData(this, data);
+ *               //TODO use fields...
  *           }
  *
  *          {@literal @}Override
@@ -37,10 +41,10 @@ import java.util.LinkedHashMap;
  * </code></pre>
  *
  * <pre><code>
- *     public class ExampleActivity extends BaseActivity {
- *          {@literal @}AutoAccess(dataName = "name") String name;
- *          {@literal @}AutoAccess(dataName = "description") String description;
- *     }
+ *      Intent intent = new Intent(this, ExampleActivity.class);
+ *      intent.putExtra("name", "DataAutoAccess");
+ *      intent.putExtra("description", "Android bundle data auto access.");
+ *      startActivity(intent);
  * </code></pre>
  *
  * Created by ThirtyDegreesRay on 2016/9/6 09:35

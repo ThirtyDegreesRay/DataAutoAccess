@@ -27,4 +27,8 @@ public class FieldAutoAccess {
     public String getFieldType() {
         return fieldType;
     }
+
+    public String getFiledKey(){
+        return dataName== null || dataName.equals("") ? fieldName : dataName;
+    }
 }
