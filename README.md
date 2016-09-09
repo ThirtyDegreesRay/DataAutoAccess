@@ -1,16 +1,19 @@
 #DataAutoAccess
-Android bundle data auto access
-##Usages
-1. activity启动时取出intent中的数据；
-2. activity由于系统内存不足时被杀死，在onSaveInstanceState方法里存储数据，onCreate时取出数据。
+自动存取Android Bundle中数据——给需要自动存取的变量添加注解，编译时会通过注解处理自动生成存取的代码
 
-##Use
-BaseActivity中添加取出数据和存储数据代码：
+* Activity启动时自动取出Intent中的数据，并赋值给相应的field
+* Activity由于系统内存不足将要被杀死时，在onSaveInstanceState方法里存储数据，Activity重启时在onCreate中取出数据并赋值给相应的field
+
+```java
+public class ExampleActivity extends Activity{
+    @AutoAccess(dataName = "name")
+    String name;
+    @AutoAccess(dataName = "description")
+    String description;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //get data
         Bundle data;
         data = getIntent().getExtras();
@@ -19,30 +22,26 @@ BaseActivity中添加取出数据和存储数据代码：
             data = savedInstanceState;
         }
         DataAutoAccess.getData(this, data);
+        //TODO use fields...
     }
-
+    
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //save data
         DataAutoAccess.saveData(this, outState);
     }
+}
+```
 
-启动Activity时传入参数：
-    
-    Intent intent = new Intent(this, TestActivity.class);
-    intent.putExtra("name", "DataAutoAccess");
-    intent.putExtra("description", "Android bundle data auto access.");
-    startActivity(intent);
-        
-给ExampleActivity中需要自动存储的变量添加注解：
-
-    @AutoAccess(dataName = "name")
-    private String name;
-    @AutoAccess(dataName = "description")
-    private String description;
-    
-经过以上配置之后，DataAutoAccess会自动从intent中取出数据，给name和description变量赋值，而且当activity由于系统内存不足被杀死时，也会自动保存变量值，在onCreate时取出进行赋值。
+Intent传参形式：
+```java    
+Intent intent = new Intent(this, ExampleActivity.class);
+intent.putExtra("name", "DataAutoAccess");
+intent.putExtra("description", "Android bundle data auto access.");
+startActivity(intent);
+```    
+经过以上配置之后，DataAutoAccess会自动从intent中取出数据，给name和description变量赋值，而且当activity由于系统内存不足将要被杀死时，也会自动保存变量值，在onCreate时取出进行赋值。
 
 
 ##Download
