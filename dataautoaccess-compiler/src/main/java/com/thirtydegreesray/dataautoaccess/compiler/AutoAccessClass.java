@@ -80,16 +80,16 @@ public class AutoAccessClass {
         for(FieldAutoAccess field : fields){
             String putPreCode = DataAutoAccessProcessor.PUT_DATA_PRE_CODE_MAP.get(field.getFieldType());
             //type ArrayList
-            if(putPreCode.equals("")){
-                java.append("\t").append("DataAutoAccess.saveArrayList(")
-                        .append("\"").append(field.getFiledKey()).append("\"").append(", ")
-                        .append("target.").append(field.getFieldName()).append(", ")
-                        .append("dataStore").append(");\n");
-            }else{
+//            if(putPreCode.equals("")){
+//                java.append("\t").append("DataAutoAccess.saveArrayList(")
+//                        .append("\"").append(field.getFiledKey()).append("\"").append(", ")
+//                        .append("target.").append(field.getFieldName()).append(", ")
+//                        .append("dataStore").append(");\n");
+//            }else{
                 java.append("\t").append("dataStore.").append(putPreCode)
                         .append("(").append("\"").append(field.getFiledKey()).append("\"").append(", ")
                         .append("target.").append(field.getFieldName()).append(");\n");
-            }
+//            }
         }
         java.append("}\n");
     }

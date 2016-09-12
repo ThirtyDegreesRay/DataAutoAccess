@@ -40,7 +40,9 @@ intent.putExtra("description", "Android bundle data auto access.");
 startActivity(intent);
 ```    
 经过以上配置之后，DataAutoAccess会自动从intent中取出数据，给name和description变量赋值，而且当activity由于系统内存不足将要被杀死时，也会自动保存变量值，在onCreate时取出进行赋值。
-
+###Supported field type
+All type which bundle supported:
+String, int, boolean, double, float, long, byte, char, short, Parcelable, Serializable, Bundle, CharSequence,ArrayList<String>, ArrayList<Integer>, ArrayList<Parcelable>, ArrayList<CharSequence>, String[], int[], boolean[], double[], float[], long[], byte[], char[], short[], ParcelableBean[], CharSequenceBean[].
 
 ##Download
 Configure your project-level build.gradle to include the 'android-apt' plugin:
@@ -63,8 +65,8 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
     }
     
     dependencies {
-        compile 'com.thirtydegreesray:dataautoaccess:1.2.2'
-        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.2'
+        compile 'com.thirtydegreesray:dataautoaccess:1.2.3'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.3'
     }
     
 ##Proguard

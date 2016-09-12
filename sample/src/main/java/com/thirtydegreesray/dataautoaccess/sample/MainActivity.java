@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.thirtydegreesray.dataautoaccess.sample.test.TestActivity;
+
 /**
  * Created by ThirtyDegreesRay on 2016/9/1 09:58
  */
@@ -19,6 +21,11 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(this, ExampleActivity.class);
         intent.putExtra("name", "DataAutoAccess");
         intent.putExtra("description", "Android bundle data auto access.");
+        startActivity(intent);
+    }
+
+    public void onTestClick(View view){
+        Intent intent = new Intent(this, TestActivity.class);
         startActivity(intent);
     }
 }

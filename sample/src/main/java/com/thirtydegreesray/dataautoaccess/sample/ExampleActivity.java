@@ -25,7 +25,7 @@ public class ExampleActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_example);
 
         tvName = (TextView) findViewById(R.id.tv_name);
         tvDescription = (TextView) findViewById(R.id.tv_description);

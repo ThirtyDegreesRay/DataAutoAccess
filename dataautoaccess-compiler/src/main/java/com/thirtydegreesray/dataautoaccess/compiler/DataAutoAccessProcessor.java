@@ -59,7 +59,7 @@ public class DataAutoAccessProcessor extends AbstractProcessor {
     static final List<String> PUT_DATA_PRE_CODE = Arrays.asList(
             "putString", "putInt", "putBoolean", "putDouble", "putFloat", "putLong",
             "putByte", "putChar", "putShort", "putParcelable", "putSerializable", "putBundle", "putCharSequence",
-            "",
+            "putSerializable",
             "putStringArray", "putIntArray", "putBooleanArray", "putDoubleArray", "putFloatArray", "putLongArray",
             "putByteArray", "putCharArray", "putShortArray", "putParcelableArray", "putCharSequenceArray"
     );
