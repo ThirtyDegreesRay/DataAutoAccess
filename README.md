@@ -41,7 +41,7 @@ startActivity(intent);
 ```    
 经过以上配置之后，DataAutoAccess会自动从intent中取出数据，给name和description变量赋值，而且当activity由于系统内存不足将要被杀死时，也会自动保存变量值，在onCreate时取出进行赋值。
 ###Supported field type
-All type which bundle supported:
+Support all type which bundle supported:<br>
 String, int, boolean, double, float, long, byte, char, short, Parcelable, Serializable, Bundle, CharSequence,ArrayList<String>, ArrayList<Integer>, ArrayList<Parcelable>, ArrayList<CharSequence>, String[], int[], boolean[], double[], float[], long[], byte[], char[], short[], ParcelableBean[], CharSequenceBean[].
 
 ##Download
