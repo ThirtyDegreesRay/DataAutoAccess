@@ -14,14 +14,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //get data
-        Bundle data;
-        data = getIntent().getExtras();
-        //judge data source
-        if (data == null) {
-            data = savedInstanceState;
-        }
-        DataAutoAccess.getData(this, data);
+        DataAutoAccess.getData(this, savedInstanceState);
     }
 
     @Override

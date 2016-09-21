@@ -2,7 +2,7 @@
 自动存取Android Bundle中数据——给需要自动存取的变量添加注解，编译时会通过注解处理自动生成存取的代码
 
 * Activity启动时自动取出Intent中的数据，并赋值给相应的field
-* Activity由于系统内存不足将要被杀死时，在onSaveInstanceState方法里存储数据，Activity重启时在onCreate中取出数据并赋值给相应的field
+* Activity或Fragment由于系统内存不足将要被杀死时，在onSaveInstanceState方法里存储数据，重启时在onCreate中取出数据并赋值给相应的field
 
 ```java
 public class ExampleActivity extends Activity{
@@ -12,13 +12,6 @@ public class ExampleActivity extends Activity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //get data
-        Bundle data;
-        data = getIntent().getExtras();
-        //judge data source
-        if (data == null) {
-            data = savedInstanceState;
-        }
         DataAutoAccess.getData(this, data);
         //TODO use fields...
     }
@@ -65,8 +58,8 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
     }
     
     dependencies {
-        compile 'com.thirtydegreesray:dataautoaccess:1.2.3'
-        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.3'
+        compile 'com.thirtydegreesray:dataautoaccess:1.2.5'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.5'
     }
     
 ##Proguard

@@ -1,6 +1,7 @@
 package com.thirtydegreesray.dataautoaccess;
 
 
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -20,13 +21,6 @@ import java.util.LinkedHashMap;
  *          {@literal @}Override
  *           protected void onCreate(@Nullable Bundle savedInstanceState) {
  *               super.onCreate(savedInstanceState);
- *               //get data
- *               Bundle data;
- *               data = getIntent().getExtras();
- *               //judge data source
- *               if (data == null) {
- *                   data = savedInstanceState;
- *               }
  *               DataAutoAccess.getData(this, data);
  *               //TODO use fields...
  *           }
@@ -62,7 +56,17 @@ public class DataAutoAccess {
      * @param dataStore    the bundle to get data
      */
     public static void getData(Object targetObject, Bundle dataStore) {
-        if (targetObject == null || dataStore == null) {
+
+        if(targetObject == null){
+            return ;
+        }
+
+        //data from savedInstanceState or intent
+        if(targetObject instanceof Activity && dataStore == null){
+            dataStore = ((Activity)targetObject).getIntent().getExtras();
+        }
+
+        if (dataStore == null) {
             return;
         }
 
