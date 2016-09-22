@@ -12,6 +12,7 @@ public class ExampleActivity extends Activity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //get data
         DataAutoAccess.getData(this, savedInstanceState);
         //TODO use fields...
     }
