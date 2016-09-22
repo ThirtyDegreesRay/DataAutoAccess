@@ -1,7 +1,7 @@
 #DataAutoAccess
 自动存取Android Bundle中数据——给需要自动存取的变量添加注解，编译时会通过注解处理自动生成存取的代码
 
-* Activity启动时自动取出Intent中的数据，并赋值给相应的field
+* Activity或Service启动时自动取出Intent中的数据，并赋值给相应的field
 * Activity或Fragment由于系统内存不足将要被杀死时，在onSaveInstanceState方法里存储数据，重启时在onCreate中取出数据并赋值给相应的field
 
 ```java
@@ -12,7 +12,7 @@ public class ExampleActivity extends Activity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DataAutoAccess.getData(this, data);
+        DataAutoAccess.getData(this, savedInstanceState);
         //TODO use fields...
     }
     
