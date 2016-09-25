@@ -129,9 +129,6 @@ public class DataAutoAccess {
      * Exposed for generated code.
      */
     public static <T extends Object> T getCastData(String key, Bundle dataStore) {
-        if (!dataStore.containsKey(key)) {
-            return null;
-        }
         return (T) dataStore.get(key);
     }
 

@@ -59,8 +59,8 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
     }
     
     dependencies {
-        compile 'com.thirtydegreesray:dataautoaccess:1.2.5'
-        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.5'
+        compile 'com.thirtydegreesray:dataautoaccess:1.2.6'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.6'
     }
     
 ##Proguard

@@ -65,18 +65,19 @@ public class AutoAccessClass {
     }
 
     private void generateGetDataCode(StringBuilder java){
-        java.append("@Override ").append("public void getData(T target, Bundle dataStore){\n");
+        java.append("\t@Override ").append("public void getData(T target, Bundle dataStore){\n");
         for(FieldAutoAccess field : fields){
-            java.append("\t").append("target.").append(field.getFieldName())
+            java.append("\t\t").append("if(dataStore.containsKey(\"").append(field.getFiledKey()).append("\"))\n");
+            java.append("\t\t\t").append("target.").append(field.getFieldName())
                     .append(" = ")
                     .append("DataAutoAccess.getCastData(").append("\"").append(field.getFiledKey()).append("\"")
                     .append(", ").append("dataStore").append(");\n");
         }
-        java.append("}\n");
+        java.append("\t}\n");
     }
 
     private void generateSaveDataCode(StringBuilder java){
-        java.append("@Override ").append("public void saveData(T target, Bundle dataStore){\n");
+        java.append("\t@Override ").append("public void saveData(T target, Bundle dataStore){\n");
         for(FieldAutoAccess field : fields){
             String putPreCode = DataAutoAccessProcessor.PUT_DATA_PRE_CODE_MAP.get(field.getFieldType());
             //type ArrayList
@@ -86,12 +87,12 @@ public class AutoAccessClass {
 //                        .append("target.").append(field.getFieldName()).append(", ")
 //                        .append("dataStore").append(");\n");
 //            }else{
-                java.append("\t").append("dataStore.").append(putPreCode)
+                java.append("\t\t").append("dataStore.").append(putPreCode)
                         .append("(").append("\"").append(field.getFiledKey()).append("\"").append(", ")
                         .append("target.").append(field.getFieldName()).append(");\n");
 //            }
         }
-        java.append("}\n");
+        java.append("\t}\n");
     }
 
 }
