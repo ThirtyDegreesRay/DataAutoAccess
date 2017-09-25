@@ -66,6 +66,7 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
 ## Proguard
     -keep class com.thirtydegreesray.dataautoaccess.** { *; }
     -keep class **$$DataAccessor { *; }
+    -keepclasseswithmembernames class * { @com.thirtydegreesray.dataautoaccess.annotation.AutoAccess <fields>;}
 
 ## License
     Copyright 2016 ThirtyDegreesRay
