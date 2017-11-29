@@ -8,8 +8,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-targetCompatibility = '1.7'
-sourceCompatibility = '1.7'
+targetCompatibility = '1.6'
+sourceCompatibility = '1.6'
 
 def siteUrl = 'https://github.com/ThirtyDegreesRay/DataAutoAccess'   // 项目的主页
 def gitUrl = 'https://github.com/ThirtyDegreesRay/DataAutoAccess.git'   // Git仓库的url
