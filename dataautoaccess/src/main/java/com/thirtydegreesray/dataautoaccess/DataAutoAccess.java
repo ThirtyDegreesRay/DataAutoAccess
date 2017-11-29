@@ -8,6 +8,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Data auto access<br>
@@ -70,8 +71,8 @@ public class DataAutoAccess {
             return;
         }
 
-        DataAccessor<Object> dataAccessor = getDataAccessor(targetObject, dataStore);
-        if (dataAccessor != null) {
+        List<DataAccessor<Object>> dataAccessors = getDataAccessors(targetObject);
+        for(DataAccessor<Object> dataAccessor : dataAccessors){
             dataAccessor.getData(targetObject, dataStore);
         }
     }
@@ -87,16 +88,30 @@ public class DataAutoAccess {
             return;
         }
 
-        DataAccessor<Object> dataAccessor = getDataAccessor(targetObject, dataStore);
-        if (dataAccessor != null) {
+        List<DataAccessor<Object>> dataAccessors = getDataAccessors(targetObject);
+        for(DataAccessor<Object> dataAccessor : dataAccessors){
             dataAccessor.saveData(targetObject, dataStore);
         }
     }
 
-    private static DataAccessor<Object> getDataAccessor(Object targetObject, Bundle dataStore) {
+    private static List<DataAccessor<Object>> getDataAccessors(Object targetObject) {
+        List<DataAccessor<Object>> dataAccessors = new ArrayList<>();
         Class<?> targetClass = targetObject.getClass();
+        getDataAccessors(dataAccessors, targetClass);
+        return dataAccessors;
+    }
+
+    private static List<DataAccessor<Object>> getDataAccessors(
+            List<DataAccessor<Object>> dataAccessors, Class<?> targetClass) {
         String className = targetClass.getName() + SUFFIX;
-        return getDataAccessor(className);
+        DataAccessor<Object> dataAccessor = getDataAccessor(className);
+        if(dataAccessor != null){
+            dataAccessors.add(dataAccessor);
+        }
+        if(targetClass.getSuperclass() != null){
+            getDataAccessors(dataAccessors, targetClass.getSuperclass());
+        }
+        return dataAccessors;
     }
 
     private static DataAccessor<Object> getDataAccessor(String className) {

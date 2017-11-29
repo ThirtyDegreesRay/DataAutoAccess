@@ -1,4 +1,6 @@
 # DataAutoAccess
+[![Releases](https://img.shields.io/github/release/ThirtyDegreesRay/DataAutoAccess.svg)](https://github.com/ThirtyDegreesRay/DataAutoAccess/releases/latest)
+
 自动存取Android Bundle中数据——给需要自动存取的变量添加注解，编译时会通过注解处理自动生成存取的代码
 
 * Activity或Service启动时自动取出Intent中的数据，并赋值给相应的field
@@ -59,8 +61,8 @@ Then, apply the 'android-apt' plugin in your module-level build.gradle and add t
     }
     
     dependencies {
-        compile 'com.thirtydegreesray:dataautoaccess:1.2.6'
-        apt 'com.thirtydegreesray:dataautoaccess-compiler:1.2.6'
+        compile 'com.thirtydegreesray:dataautoaccess:latestVersion'
+        apt 'com.thirtydegreesray:dataautoaccess-compiler:latestVersion'
     }
     
 ## Proguard

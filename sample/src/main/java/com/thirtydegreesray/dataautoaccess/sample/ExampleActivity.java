@@ -19,6 +19,7 @@ public class ExampleActivity extends BaseActivity {
 
     private TextView tvName;
     private TextView tvDescription;
+    private TextView tvStarted;
 
     private Bundle testBundle;
 
@@ -29,11 +30,14 @@ public class ExampleActivity extends BaseActivity {
 
         tvName = (TextView) findViewById(R.id.tv_name);
         tvDescription = (TextView) findViewById(R.id.tv_description);
+        tvStarted = (TextView) findViewById(R.id.tv_started);
         tvName.setText(name);
         tvDescription.setText(description);
+        tvStarted.setText(started ? "started" : "starting");
 
         testBundle = new Bundle();
         DataAutoAccess.saveData(this, testBundle);
+        started = true;
     }
 
     public void onSaveDataClick(View view){

@@ -20,6 +20,13 @@
         android:gravity="center"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
+    <TextView
+        android:id="@+id/tv_started"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
 
     <Button
         android:layout_width="120dp"
